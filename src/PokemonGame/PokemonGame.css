@@ -1,0 +1,46 @@
+.pokemon-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.pokemon-image {
+	width: 20%;
+}
+
+.pokemon-dark {
+    filter: brightness(0);
+}
+
+.pokemon-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.pokemon-form button {
+	margin-top: 1rem;
+    padding: 1rem;
+    width: 10vw;
+    border-radius: 10px;
+    font-size: small;
+    background-color: white;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    box-shadow: 5px 5px;
+}
+
+.pokemon-form button:hover{
+    background-color: grey;
+}
+
+.pokemon-div p{
+    font-size: 1.5rem;
+}
+
+.pokemon-input {
+    width: 20vw;
+    padding: 12px 20px;
+    font-size: large;
+}
