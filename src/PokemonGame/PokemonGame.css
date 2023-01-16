@@ -19,16 +19,17 @@
 	align-items: center;
 }
 
-.pokemon-form button {
+.pokemon-button {
 	margin-top: 1rem;
     padding: 1rem;
     width: 10vw;
-    border-radius: 10px;
+    border-radius: 15px;
     font-size: small;
     background-color: white;
     font-family: 'Press Start 2P', cursive;
     cursor: pointer;
     box-shadow: 5px 5px;
+    text-align: center;
 }
 
 .pokemon-form button:hover{

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import './PokemonGame.css'
+import './PokemonGame.css';
 
 type PokemonOptions = {
-    silhouette: boolean;
-    generation?: number;
-}
+	silhouette: boolean;
+	generation?: number;
+};
 
 function PokemonGame(props: PokemonOptions) {
 	const [pokemonImage, setPokemonImage] = useState('');
@@ -28,6 +28,8 @@ function PokemonGame(props: PokemonOptions) {
 				console.log(json.name);
 			} catch (error) {
 				console.log('error', error);
+			} finally {
+				return
 			}
 		};
 
@@ -37,6 +39,7 @@ function PokemonGame(props: PokemonOptions) {
 	const selectRandomPokemon = () => {
 		const randomIdx = Math.floor(Math.random() * 151) + 1;
 		fetchPokemonData(randomIdx);
+		console.log('select random');
 	};
 
 	const refreshButton = () => {
@@ -53,22 +56,30 @@ function PokemonGame(props: PokemonOptions) {
 			setCorrect(correct + 1);
 			setInput('');
 			selectRandomPokemon();
+			return;
 		} else {
 			setInput('');
 			selectRandomPokemon();
 			setCorrect(0);
+			return;
 		}
 	};
 
 	return (
-		<div className='pokemon-div'>
-			
-			<p className='pokemon-correct'>Number Correct in a Row: {correct}</p>
+		<div className="pokemon-div">
+			<p className="pokemon-correct">Number Correct in a Row: {correct}</p>
 			<img src={pokemonImage} className="pokemon-image" />
-			<form className='pokemon-form' onSubmit={enterGuess}>
-				<input className='pokemon-input' type="text" value={input} onChange={handelInput} />
-				<button className='refresh-button' onClick={refreshButton}>New Game</button>
-				<button type="submit">Submit</button>
+			<form className="pokemon-form" onSubmit={enterGuess}>
+				<input
+					className="pokemon-input"
+					type="text"
+					value={input}
+					onChange={handelInput}
+				/>
+				<button type='button' className="pokemon-button" onClick={refreshButton}>
+					New Game
+				</button>
+				<button type='submit' className="pokemon-button">Submit</button>
 			</form>
 		</div>
 	);
